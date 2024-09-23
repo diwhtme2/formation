@@ -95,9 +95,33 @@ void convertToBase() {
     }
 
     printf("\n");
-}
 
 
-void main() {
-    convertToBase();
+void convertToBase() {
+    int base, n;
+    
+    printf("Enter the base to convert to: ");
+    scanf("%d", &base);
+    printf("Enter a number to convert: ");
+    scanf("%d", &n);
+
+    if (n == 0) {
+        printf("0\n");
+        return;
+    }
+
+    char digits[32];
+    char digitChars[] = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    int digitCount = 0;
+
+    while (n > 0) {
+        digits[digitCount++] = digitChars[n % base];
+        n /= base;
+    }
+
+    for (int i = digitCount - 1; i >= 0; i--) {
+        printf("%c", digits[i]);
+    }
+    
+    printf("\n");
 }
