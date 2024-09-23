@@ -33,6 +33,7 @@ void binary_bit() {
     }
     
     int temp = 0;
+    
     for (int i = 31; i >= 0; i--) {
         int bit = (n >> i) & 1;
         if (bit) temp = 1;
@@ -68,33 +69,6 @@ void binary() {
 
     printf("\n");
 }
-
-
-void convertToBase() {
-    int base, n;
-
-    printf("Enter the base to convert to: ");
-    scanf("%d", &base);
-    printf("Enter a number to convert: ");
-    scanf("%d", &n);
-
-    if (n == 0) {
-        printf("0");
-        return;
-    }
-    int digits[32];
-    int digitCount = 0;
-
-    while (n > 0) {
-        digits[digitCount++] = n % base;
-        n /= base;
-    }
-
-    for (int i = digitCount - 1; i >= 0; i--) {
-        printf("%d", digits[i]);
-    }
-
-    printf("\n");
 
 
 void convertToBase() {
