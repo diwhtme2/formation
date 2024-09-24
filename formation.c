@@ -28,7 +28,6 @@ char* convertToBase(int n, int base) {
 
 void convertToBaseInput() {
     int n, base;
-    
     printf("number\n");
     scanf("%d", &n);
     printf("base (2-36)\n");
