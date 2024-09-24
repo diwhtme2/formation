@@ -1,34 +1,35 @@
-def binary():
-    n = int(input('Enter a number to convert to binary: '))
-    
+def convertToBase(n, base):
     if n == 0:
-        print('0')
-        return
+        return '0'
     
-    bits = []
-    
+    result = []
+    digitChars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'
     while n > 0:
-        bits.insert(0, n % 2)
-        n //= 2
-        
-    print(''.join(map(str, bits)))
-    
-    
-def convertToBase():
-    base = int(input('Enter the base to convert to: '))        
-    n = int(input('Enter a number to convert: '))
-    
-    if n == 0:
-        print('0')
-        return
-    
-    digits = []
-    
-    while n > 0:
-        digits.insert(0, n % base)
+        result.insert(0, digitChars[n % base])
         n //= base
         
-    print(''.join(map(str, digits)))
+    return ''.join(result)
+
+def convertToBaseInput():
+    n = int(input('number\n'))
+    base = int(input('base\n'))
+    print(convertToBase(n, base))
     
+def binary(n):
+    if n == 0:
+        return 0
     
-convertToBase()
+    result = 0
+    c = 1
+    while n > 0:
+        result += (n % 2) * c
+        n //= 2
+        c *= 10
+        
+    return result
+
+def binaryInput():
+    n = int(input('number\n'))
+    print(binary(n))
+    
+binaryInput()
